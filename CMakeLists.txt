@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
-project(zllm C CXX)
+project(zllm C)
+set(CMAKE_C_STANDARD 23)
 
 #add_library(zllm
 #        include/ggml.h
