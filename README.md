@@ -1,2 +1,2 @@
-# zllm
-gglm rewritten in Zig [Educational Project]
+# cllm
+gglm rewritten in C [Educational Project]

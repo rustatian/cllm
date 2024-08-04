@@ -2,27 +2,26 @@
 
 #include <stdio.h>
 
+#define IN 1
+#define OUT 0
+
 int main() {
-  float fahr, celsius;
-  int lower, upper, step;
+  int c, nl, nw, nc, state;
 
-  lower = 0;
-  upper = 300;
-  step = 20;
+  state = OUT;
+  nl = nw = nc = 0;
 
-  fahr = lower;
+  while ((c = getchar()) != EOF) {
+    ++nc;
+    if (c == '\n') ++nl;
 
-  while (fahr <= upper) {
-    celsius = (5.0 / 9.0) * (fahr - 32.0);
-    printf("%3.0f %6.1f\n", fahr, celsius);
-    fahr = fahr + step;
+    if (c == ' ' || c == '\n' || c == '\t') {
+      state = OUT;
+    } else if (state == OUT) {
+      state = IN;
+      ++nw;
+    }
   }
 
-  fahr = lower;
-
-  for (fahr = 0; fahr <=300; fahr+=20) {
-    printf("%3.0f %6.1f\n", fahr, celsius);
-  }
-
-  return 0;
+  printf("%d %d %d\n", nl, nw, nc);
 }
